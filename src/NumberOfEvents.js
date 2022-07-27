@@ -7,17 +7,17 @@ class NumberOfEvents extends Component {
 
   handleInput = (event) => {
     const number = event.target.value;
-    console.log(event)
     if (!isNaN(number) && number >= 0 && number <=32) {
-      console.log(number)
       this.setState({ numberOfEvents: number })
     } else {
-      console.log(number)
       this.setState({ numberOfEvents: 32 })
     }
+    console.log(typeof(this.props.updateEvents))
+    this.props.updateEvents(undefined, number)
   };
 
   render () {
+    console.log(this.props.updateEvents)
     return (
       <div className="number-of-events">
         <label className="number-of-events-label" htmlFor="event-number">
@@ -27,7 +27,7 @@ class NumberOfEvents extends Component {
             className="number-of-events-input"
             id="event-number"
             value={this.state.numberOfEvents}
-            onChange={(e) => {this.handleInput(e)}}
+            onChange={this.handleInput}
           />
         </label>
       </div>
