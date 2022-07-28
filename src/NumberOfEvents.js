@@ -16,7 +16,6 @@ class NumberOfEvents extends Component {
   };
 
   render () {
-    console.log(this.props.updateEvents)
     return (
       <div className="number-of-events">
         <label className="number-of-events-label" htmlFor="event-number">
