@@ -12,7 +12,6 @@ class NumberOfEvents extends Component {
     } else {
       this.setState({ numberOfEvents: 32 })
     }
-    console.log(typeof(this.props.updateEvents))
     this.props.updateEvents(undefined, number)
   };
 
