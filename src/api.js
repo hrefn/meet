@@ -8,7 +8,7 @@ export const extractLocations = (events) => {
   return locations;
 };
 
-const getToken = async (code) => {
+export const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
     'https://yrlh48eaf1.execute-api.us-east-2.amazonaws.com/dev/api/token/' + encodeCode
@@ -23,7 +23,7 @@ const getToken = async (code) => {
     return access_token;
 };
 
-const checkToken = async (accessToken) => {
+export const checkToken = async (accessToken) => {
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
