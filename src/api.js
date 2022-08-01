@@ -1,15 +1,13 @@
-
+import { mockData } from './mock-data';
+import axios from './axios';
 
 export const extractLocations = (events) => {
   var extractLocations = events.map((event) => event.location);
   var locations = [...new Set(extractLocations)];
   return locations;
-<<<<<<< Updated upstream
-};
-=======
-};
+}
 
-const getToken = async (code) => {
+export const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
     'https://yrlh48eaf1.execute-api.us-east-2.amazonaws.com/dev/api/token/' + encodeCode
@@ -93,4 +91,3 @@ export const getAccessToken = async () => {
   };
   return accessToken
 }
->>>>>>> Stashed changes
