@@ -20,6 +20,7 @@ o.svg" alt="Google sign-in" />
               <b>Sign in with google</b>
             </button>
           </div>
+
         </div>
         <a href="https://hrefn.github.io/meet/privacy.html" rel="nofollow noopener">Privacy policy</a>
       </div>

@@ -28,7 +28,7 @@ export const checkToken = async (accessToken) => {
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
     .then((res) => res.json())
-    .catch((err) => err.json());
+    .catch((error) => error.json());
 
   return result;
 }
@@ -49,6 +49,11 @@ export const getEvents = async () => {
   if (window.location.href.startsWith('http://localhost')) {
     // NProgress.done();
     return mockData;
+  }
+
+  if (!navigator.onLine) {
+    const data = localStorage.getItem("lastEvents");
+    return data?JSON.parse(data).events:[];;
   }
 
   const token = await getAccessToken();

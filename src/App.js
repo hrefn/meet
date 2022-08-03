@@ -41,7 +41,12 @@ class App extends Component {
     this.mounted = true;
 
     const accessToken = localStorage.getItem('access_token');
-    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    let isTokenValid;
+    if (accessToken && !navigator.onLine) {
+      isTokenValid = true;
+    } else {
+      isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    }
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('code');
     
